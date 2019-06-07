@@ -53,6 +53,17 @@ public class TraineeServiceTest {
 	}
 
 	@Test
+	public void remove2AccountsTest() {
+		tmr.getTraineeMap().put(1, trainee1);
+		tmr.getTraineeMap().put(2, trainee2);
+		tmr.deleteTrainee(1);
+		assertEquals(false, tmr.getTraineeMap().containsKey((Integer) 1));
+		tmr.deleteTrainee(2);
+		assertEquals(false, tmr.getTraineeMap().containsKey((Integer) 2));
+
+	}
+
+	@Test
 	public void jsonStringToTraineeConversionTest() {
 		String stringToTest = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}";
 		Trainee testAccount = util.getObjectForJSON(stringToTest, Trainee.class);
