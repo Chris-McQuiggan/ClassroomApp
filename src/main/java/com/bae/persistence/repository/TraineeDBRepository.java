@@ -1,9 +1,12 @@
 package com.bae.persistence.repository;
 
+import java.util.List;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
@@ -30,8 +33,10 @@ public class TraineeDBRepository implements TraineeRepository {
 
 	@Override
 	public String getAllTrainees() {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Trainee> query = null;
+		query = em.createQuery("SELECT t FROM Trainee t", Trainee.class);
+		List<Trainee> traineeList = query.getResultList();
+		return util.getJSONForObject(traineeList);
 	}
 
 	@Override
