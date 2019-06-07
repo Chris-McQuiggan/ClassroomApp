@@ -1,6 +1,27 @@
 package com.bae.persistence.repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.enterprise.inject.Alternative;
+
+import com.bae.persistence.domain.Classroom;
+import com.bae.util.JSONUtil;
+
+@Alternative
 public class ClassMapRepository implements ClassRepository {
+
+	private Map<Integer, Classroom> classMap = new HashMap<Integer, Classroom>();
+
+	private JSONUtil util = new JSONUtil();
+
+	public Map<Integer, Classroom> getClassMap() {
+		return classMap;
+	}
+
+	public void setClassMap(Map<Integer, Classroom> classMap) {
+		this.classMap = classMap;
+	}
 
 	@Override
 	public String addClass(String trainer) {
@@ -10,14 +31,12 @@ public class ClassMapRepository implements ClassRepository {
 
 	@Override
 	public String getAllClasses() {
-		// TODO Auto-generated method stub
-		return null;
+		return util.getJSONForObject(classMap);
 	}
 
 	@Override
 	public String getAClass(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return util.getJSONForObject(classMap.get(id));
 	}
 
 	@Override

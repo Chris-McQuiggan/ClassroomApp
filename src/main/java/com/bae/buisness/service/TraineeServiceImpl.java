@@ -1,6 +1,12 @@
 package com.bae.buisness.service;
 
+import javax.inject.Inject;
+
+import com.bae.persistence.repository.TraineeRepository;
+
 public class TraineeServiceImpl implements TraineeService {
+	@Inject
+	private TraineeRepository repo;
 
 	@Override
 	public String addTrainee(String trainee) {
@@ -10,14 +16,13 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public String getAllTrainees() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public String getATrainee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.getATrainee(id);
 	}
 
 	@Override
