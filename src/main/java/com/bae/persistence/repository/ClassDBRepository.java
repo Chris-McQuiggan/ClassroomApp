@@ -41,8 +41,13 @@ public class ClassDBRepository implements ClassRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String updateClass(String classroom, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Classroom class1 = util.getObjectForJSON(classroom, Classroom.class);
+		Classroom classToUpdate = em.getReference(Classroom.class, id);
+		if (classToUpdate != null) {
+			classToUpdate.setTrainer(class1.getTrainer());
+			em.persist(classToUpdate);
+		}
+		return "Updated:---   " + classroom;
 	}
 
 	@Transactional(TxType.REQUIRED)

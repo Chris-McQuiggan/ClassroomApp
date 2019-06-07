@@ -41,9 +41,15 @@ public class TraineeDBRepository implements TraineeRepository {
 
 	@Transactional(TxType.REQUIRED)
 	@Override
-	public String updateTrainee(String trianee, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateTrainee(String trainee, int id) {
+		Trainee trainee1 = util.getObjectForJSON(trainee, Trainee.class);
+		Trainee traineeToUpdate = em.getReference(Trainee.class, id);
+		if (traineeToUpdate != null) {
+			traineeToUpdate.setTraineeName(trainee1.getTrainee());
+			traineeToUpdate.setClassID(trainee1.getClassID());
+			em.persist(traineeToUpdate);
+		}
+		return "Updated:---   " + trainee;
 	}
 
 	@Transactional(TxType.REQUIRED)
