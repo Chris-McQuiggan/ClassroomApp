@@ -12,18 +12,20 @@ public class Trainee {
 	@Id
 	private int studentID;
 	private String traineeName;
+	private int classID;
 
 	public Trainee() {
 
 	}
 
-	public Trainee(int studentID, String traineeName) {
+	public Trainee(int studentID, String traineeName, int classID) {
 		super();
 		this.studentID = studentID;
 		this.traineeName = traineeName;
+		this.classID = classID;
 	}
 
-	public int getClassID() {
+	public int getStudentID() {
 		return studentID;
 	}
 
@@ -33,5 +35,13 @@ public class Trainee {
 
 	public void setTraineeName(String traineeName) {
 		this.traineeName = traineeName;
+	}
+
+	public int getClassID() {
+		return classID;
+	}
+
+	public void setClassID(int classID) {
+		this.classID = classID;
 	}
 }

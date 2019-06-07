@@ -22,8 +22,7 @@ public class ClassServiceImpl implements ClassService {
 
 	@Override
 	public String getAClass(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.getAClass(id);
 	}
 
 	@Override

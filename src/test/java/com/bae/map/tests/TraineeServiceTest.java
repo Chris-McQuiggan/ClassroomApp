@@ -13,9 +13,9 @@ public class TraineeServiceTest {
 
 	private TraineeMapRepository tmr;
 	private JSONUtil util = new JSONUtil();
-	private Trainee trainee1 = new Trainee(1, "Joe Bloggs");
-	private Trainee trainee2 = new Trainee(2, "Jane Bloggs");
-	private Trainee trainee3 = new Trainee(3, "David Bloggs");
+	private Trainee trainee1 = new Trainee(1, "Joe Bloggs", 1);
+	private Trainee trainee2 = new Trainee(2, "Jane Bloggs", 1);
+	private Trainee trainee3 = new Trainee(3, "David Bloggs", 2);
 
 	@Before
 	public void setup() {
@@ -32,19 +32,19 @@ public class TraineeServiceTest {
 	@Test
 	public void getTraineeTestMatch() {
 		tmr.getTraineeMap().put(1, trainee1);
-		assertEquals("{\"studentID\":1,\"traineeName\":\"Joe Bloggs\"}", tmr.getATrainee(1));
+		assertEquals("{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}", tmr.getATrainee(1));
 	}
 
 	@Test
 	public void jsonStringToTraineeConversionTest() {
-		String stringToTest = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\"}";
+		String stringToTest = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}";
 		Trainee testAccount = util.getObjectForJSON(stringToTest, Trainee.class);
 		assertEquals(trainee1.getClassID(), testAccount.getClassID());
 	}
 
 	@Test
 	public void classroomConversionToJSONTest() {
-		String jsonAccount = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\"}";
+		String jsonAccount = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}";
 		String stringToTest = util.getJSONForObject(trainee1);
 		assertEquals(jsonAccount, stringToTest);
 	}
