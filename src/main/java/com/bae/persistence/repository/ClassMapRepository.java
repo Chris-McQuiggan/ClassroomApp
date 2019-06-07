@@ -44,8 +44,7 @@ public class ClassMapRepository implements ClassRepository {
 	public String updateClass(String classroom, int id) {
 		Classroom classToUpdate = util.getObjectForJSON(classroom, Classroom.class);
 		classMap.put(id, classToUpdate);
-
-		return "Account successfully updated";
+		return "Classroom successfully updated";
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public interface TraineeRepository {
 	String getATrainee(int id);
 
 	// U
-	String updateTrainee(String trianee, int id);
+	String updateTrainee(String trainee, int id);
 
 	// D
 	String deleteTrainee(int id);
