@@ -49,7 +49,6 @@ public class TraineeDBRepository implements TraineeRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String deleteTrainee(int id) {
-
 		Trainee trainee1 = em.getReference(Trainee.class, id);
 		em.remove(trainee1);
 		return "Trainee Deleted";
