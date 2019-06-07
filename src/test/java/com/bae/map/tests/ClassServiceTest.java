@@ -25,6 +25,18 @@ public class ClassServiceTest {
 	}
 
 	@Test
+	public void getAllClassroomsTest() {
+		assertEquals("{}", cmr.getAllClasses());
+	}
+
+	@Test
+	public void getAllTraineesTest2() {
+		cmr.getClassMap().put(1, class1);
+		System.out.println(cmr.getAllClasses());
+		assertEquals("{\"1\":" + jSONClass1 + "}", cmr.getAllClasses());
+	}
+
+	@Test
 	public void getClassTestNoMatch() {
 		cmr.getClassMap().put(1, class1);
 		assertEquals("null", cmr.getAClass(2));

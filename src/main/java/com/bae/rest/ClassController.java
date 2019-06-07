@@ -16,6 +16,13 @@ public class ClassController {
 	@Inject
 	private ClassService service;
 
+	@Path("/getAllClasses")
+	@GET
+	@Produces({ "application/json" })
+	public String getAllClasses() {
+		return service.getAllClasses();
+	}
+
 	@Path("/getAClass/{id}")
 	@GET
 	@Produces({ "application/json" })
