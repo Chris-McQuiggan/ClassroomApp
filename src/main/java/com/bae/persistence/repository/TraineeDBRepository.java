@@ -22,8 +22,8 @@ public class TraineeDBRepository implements TraineeRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String addTrainee(String trainee) {
-		Trainee class1 = util.getObjectForJSON(trainee, Trainee.class);
-		em.persist(class1);
+		Trainee trainee1 = util.getObjectForJSON(trainee, Trainee.class);
+		em.persist(trainee1);
 
 		return "Success:---  " + trainee;
 	}
@@ -49,8 +49,10 @@ public class TraineeDBRepository implements TraineeRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String deleteTrainee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Trainee trainee1 = em.getReference(Trainee.class, id);
+		em.remove(trainee1);
+		return "Trainee Deleted";
 	}
 
 }
