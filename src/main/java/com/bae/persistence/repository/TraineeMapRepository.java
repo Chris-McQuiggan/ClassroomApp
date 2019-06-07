@@ -32,8 +32,7 @@ public class TraineeMapRepository implements TraineeRepository {
 
 	@Override
 	public String getAllTrainees() {
-		// TODO Auto-generated method stub
-		return null;
+		return util.getJSONForObject(traineeMap);
 	}
 
 	@Override

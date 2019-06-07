@@ -26,6 +26,17 @@ public class TraineeServiceTest {
 	}
 
 	@Test
+	public void getAllTraineesTest() {
+		assertEquals("{}", tmr.getAllTrainees());
+	}
+
+	@Test
+	public void getAllTraineesTest2() {
+		tmr.getTraineeMap().put(1, trainee1);
+		assertEquals("{\"1\":" + jSONTrainee1 + "}", tmr.getAllTrainees());
+	}
+
+	@Test
 	public void getTraineeTestNoMatch() {
 		tmr.getTraineeMap().put(1, trainee1);
 		System.out.println(tmr.getATrainee(2));
