@@ -41,9 +41,11 @@ public class ClassMapRepository implements ClassRepository {
 	}
 
 	@Override
-	public String updateClass(String trainer, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateClass(String classroom, int id) {
+		Classroom classToUpdate = util.getObjectForJSON(classroom, Classroom.class);
+		classMap.put(id, classToUpdate);
+
+		return "Account successfully updated";
 	}
 
 	@Override
