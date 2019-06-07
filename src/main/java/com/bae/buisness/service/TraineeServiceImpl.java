@@ -25,9 +25,8 @@ public class TraineeServiceImpl implements TraineeService {
 	}
 
 	@Override
-	public String updateTrainee(String trianee, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateTrainee(String trainee, int id) {
+		return repo.updateTrainee(trainee, id);
 	}
 
 	@Override
