@@ -17,6 +17,13 @@ public class TraineeController {
 	@Inject
 	private TraineeService service;
 
+	@Path("/getAllTrainees")
+	@GET
+	@Produces({ "application/json" })
+	public String getAllTrainees() {
+		return service.getAllTrainees();
+	}
+
 	@Path("/getATrainee/{id}")
 	@GET
 	@Produces({ "application/json" })
