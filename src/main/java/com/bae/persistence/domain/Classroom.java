@@ -6,7 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Classroom {
@@ -16,7 +17,8 @@ public class Classroom {
 	int classID;
 	private String trainer;
 
-	@OneToMany(targetEntity = Trainee.class)
+	@ManyToOne(targetEntity = Trainee.class)
+	@JoinColumn
 	private List<Trainee> traineelist;
 
 	public Classroom() {
