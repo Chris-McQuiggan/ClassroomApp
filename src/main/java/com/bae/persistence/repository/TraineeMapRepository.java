@@ -49,8 +49,8 @@ public class TraineeMapRepository implements TraineeRepository {
 
 	@Override
 	public String deleteTrainee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		traineeMap.remove((Integer) id);
+		return "Trainee successfully removed";
 	}
 
 }

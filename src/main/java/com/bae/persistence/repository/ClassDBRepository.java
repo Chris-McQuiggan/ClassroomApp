@@ -48,8 +48,9 @@ public class ClassDBRepository implements ClassRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String deleteClass(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Classroom class1 = em.getReference(Classroom.class, id);
+		em.remove(class1);
+		return "Classroom Deleted";
 	}
 
 }

@@ -32,8 +32,7 @@ public class ClassServiceImpl implements ClassService {
 
 	@Override
 	public String deleteClass(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.deleteClass(id);
 	}
 
 }

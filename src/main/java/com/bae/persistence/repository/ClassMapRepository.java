@@ -48,8 +48,8 @@ public class ClassMapRepository implements ClassRepository {
 
 	@Override
 	public String deleteClass(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		classMap.remove((Integer) id);
+		return "Classroom successfully removed";
 	}
 
 }

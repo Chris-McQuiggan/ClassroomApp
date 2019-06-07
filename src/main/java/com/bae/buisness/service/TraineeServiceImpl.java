@@ -32,8 +32,7 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public String deleteTrainee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.deleteTrainee(id);
 	}
 
 }
