@@ -1,9 +1,19 @@
 package com.bae.persistence.repository;
 
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.bae.persistence.domain.Classroom;
+import com.bae.util.JSONUtil;
 
 @Default
 public class ClassDBRepository implements ClassRepository {
+	@Inject
+	JSONUtil util;
+	@PersistenceContext(unitName = "primary")
+	private EntityManager em;
 
 	@Override
 	public String addClass(String trainer) {
@@ -19,8 +29,7 @@ public class ClassDBRepository implements ClassRepository {
 
 	@Override
 	public String getAClass(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return util.getJSONForObject(em.find(Classroom.class, id));
 	}
 
 	@Override
