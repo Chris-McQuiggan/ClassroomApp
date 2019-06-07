@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Trainee {
@@ -12,7 +13,9 @@ public class Trainee {
 	@Id
 	private int studentID;
 	private String traineeName;
-	private int classID;
+	// private int classID;
+	@ManyToOne
+	private Classroom classID;
 
 	public Trainee() {
 
@@ -22,7 +25,7 @@ public class Trainee {
 		super();
 		this.studentID = studentID;
 		this.traineeName = traineeName;
-		this.classID = classID;
+		// this.classID = classID;
 	}
 
 	public int getStudentID() {
@@ -37,11 +40,11 @@ public class Trainee {
 		this.traineeName = traineeName;
 	}
 
-	public int getClassID() {
-		return classID;
+	public Classroom getClassID() {
+		return (Classroom) classID;
 	}
 
-	public void setClassID(int classID) {
+	public void setClassID(Classroom classID) {
 		this.classID = classID;
 	}
 }
