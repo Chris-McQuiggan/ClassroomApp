@@ -1,6 +1,24 @@
 package com.bae.persistence.repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.bae.persistence.domain.Trainee;
+import com.bae.util.JSONUtil;
+
 public class TraineeMapRepository implements TraineeRepository {
+
+	private Map<Integer, Trainee> traineeMap = new HashMap<Integer, Trainee>();
+
+	private JSONUtil util = new JSONUtil();
+
+	public Map<Integer, Trainee> getTraineeMap() {
+		return traineeMap;
+	}
+
+	public void setClassMap(Map<Integer, Trainee> traineeMap) {
+		this.traineeMap = traineeMap;
+	}
 
 	@Override
 	public String addTrainee(String trainee) {
@@ -16,8 +34,7 @@ public class TraineeMapRepository implements TraineeRepository {
 
 	@Override
 	public String getATrainee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return util.getJSONForObject(traineeMap.get(id));
 	}
 
 	@Override
