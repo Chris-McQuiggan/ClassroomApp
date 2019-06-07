@@ -22,8 +22,10 @@ public class TraineeDBRepository implements TraineeRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String addTrainee(String trainee) {
+		Trainee class1 = util.getObjectForJSON(trainee, Trainee.class);
+		em.persist(class1);
 
-		return "Trainee successfuly created";
+		return "Success:---  " + trainee;
 	}
 
 	@Override
