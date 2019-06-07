@@ -1,5 +1,8 @@
 package com.bae.persistence.repository;
 
+import javax.enterprise.inject.Default;
+
+@Default
 public class ClassDBRepository implements ClassRepository {
 
 	@Override
