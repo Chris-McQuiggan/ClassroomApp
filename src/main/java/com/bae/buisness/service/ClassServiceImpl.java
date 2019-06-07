@@ -25,9 +25,8 @@ public class ClassServiceImpl implements ClassService {
 	}
 
 	@Override
-	public String updateClass(String trainer, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateClass(String classroom, int id) {
+		return repo.updateClass(classroom, id);
 	}
 
 	@Override

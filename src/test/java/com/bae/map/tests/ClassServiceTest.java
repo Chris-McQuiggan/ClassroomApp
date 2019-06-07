@@ -61,6 +61,13 @@ public class ClassServiceTest {
 	}
 
 	@Test
+	public void updateAccountTest() {
+		cmr.getClassMap().put(1, class1);
+		cmr.updateClass(jSONClass2, 1);
+		assertEquals("Chester Gardner", cmr.getClassMap().get(1).getTrainer());
+	}
+
+	@Test
 	public void jsonStringToClasroomConversionTest() {
 		String stringToTest = jSONClass1;
 		Classroom testAccount = util.getObjectForJSON(stringToTest, Classroom.class);

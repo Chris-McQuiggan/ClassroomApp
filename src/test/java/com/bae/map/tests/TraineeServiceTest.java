@@ -35,7 +35,7 @@ public class TraineeServiceTest {
 	@Test
 	public void getTraineeTestMatch() {
 		tmr.getTraineeMap().put(1, trainee1);
-		assertEquals("{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}", tmr.getATrainee(1));
+		assertEquals(jSONTrainee1, tmr.getATrainee(1));
 	}
 
 	@Test
@@ -63,15 +63,22 @@ public class TraineeServiceTest {
 	}
 
 	@Test
+	public void updateTraineeTest() {
+		tmr.getTraineeMap().put(1, trainee1);
+		tmr.updateTrainee(jSONTrainee2, 1);
+		assertEquals("Jane Bloggs", tmr.getTraineeMap().get(1).getTrainee());
+	}
+
+	@Test
 	public void jsonStringToTraineeConversionTest() {
-		String stringToTest = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}";
+		String stringToTest = jSONTrainee1;
 		Trainee testAccount = util.getObjectForJSON(stringToTest, Trainee.class);
 		assertEquals(trainee1.getClassID(), testAccount.getClassID());
 	}
 
 	@Test
 	public void classroomConversionToJSONTest() {
-		String jsonAccount = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}";
+		String jsonAccount = jSONTrainee1;
 		String stringToTest = util.getJSONForObject(trainee1);
 		assertEquals(jsonAccount, stringToTest);
 	}
