@@ -20,9 +20,11 @@ public class ClassDBRepository implements ClassRepository {
 
 	@Transactional(TxType.REQUIRED)
 	@Override
-	public String addClass(String trainer) {
-		// TODO Auto-generated method stub
-		return null;
+	public String addClass(String classroom) {
+		Classroom class1 = util.getObjectForJSON(classroom, Classroom.class);
+		em.persist(class1);
+
+		return "Success:---  " + classroom;
 	}
 
 	@Override
@@ -38,7 +40,7 @@ public class ClassDBRepository implements ClassRepository {
 
 	@Transactional(TxType.REQUIRED)
 	@Override
-	public String updateClass(String trainer, int id) {
+	public String updateClass(String classroom, int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

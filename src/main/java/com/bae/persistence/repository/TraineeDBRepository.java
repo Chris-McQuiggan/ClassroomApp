@@ -22,8 +22,10 @@ public class TraineeDBRepository implements TraineeRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String addTrainee(String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainee class1 = util.getObjectForJSON(trainee, Trainee.class);
+		em.persist(class1);
+
+		return "Success:---  " + trainee;
 	}
 
 	@Override

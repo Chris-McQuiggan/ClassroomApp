@@ -16,6 +16,8 @@ public class ClassServiceTest {
 	private Classroom class1 = new Classroom(1, "Matt Hunt");
 	private Classroom class2 = new Classroom(2, "Chester Gardner");
 	private Classroom class3 = new Classroom(3, "Louis Simth");
+	private String jSONClass1 = "{\"classID\":1,\"trainer\":\"Matt Hunt\"}";
+	private String jSONClass2 = "{\"classID\":2,\"trainer\":\"Chester Gardner\"}";
 
 	@Before
 	public void setup() {
@@ -25,26 +27,31 @@ public class ClassServiceTest {
 	@Test
 	public void getClassTestNoMatch() {
 		cmr.getClassMap().put(1, class1);
-		System.out.println(cmr.getAClass(2));
 		assertEquals("null", cmr.getAClass(2));
 	}
 
 	@Test
 	public void getClassTestMatch() {
 		cmr.getClassMap().put(1, class1);
-		assertEquals("{\"classID\":1,\"trainer\":\"Matt Hunt\"}", cmr.getAClass(1));
+		assertEquals(jSONClass1, cmr.getAClass(1));
+	}
+
+	@Test
+	public void addClassTest1() {
+		assertEquals(cmr.addClass(jSONClass1), "Classroom successfuly created");
+		assertEquals(cmr.getClassMap().size(), 1);
 	}
 
 	@Test
 	public void jsonStringToClasroomConversionTest() {
-		String stringToTest = "{\"classID\":1,\"trainer\":\"Matt Hunt\"}";
+		String stringToTest = jSONClass1;
 		Classroom testAccount = util.getObjectForJSON(stringToTest, Classroom.class);
 		assertEquals(class1.getClassID(), testAccount.getClassID());
 	}
 
 	@Test
 	public void classroomConversionToJSONTest() {
-		String jsonAccount = "{\"classID\":1,\"trainer\":\"Matt Hunt\"}";
+		String jsonAccount = jSONClass1;
 		String stringToTest = util.getJSONForObject(class1);
 		assertEquals(jsonAccount, stringToTest);
 

@@ -3,7 +3,7 @@ package com.bae.buisness.service;
 public interface ClassService {
 
 	// C
-	String addClass(String trainer);
+	String addClass(String classroom);
 
 	// R
 	String getAllClasses();
@@ -11,7 +11,7 @@ public interface ClassService {
 	String getAClass(int id);
 
 	// U
-	String updateClass(String trainer, int id);
+	String updateClass(String classroom, int id);
 
 	// D
 	String deleteClass(int id);

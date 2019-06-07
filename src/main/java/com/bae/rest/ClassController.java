@@ -2,6 +2,7 @@ package com.bae.rest;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -19,4 +20,12 @@ public class ClassController {
 	public String getAClass(@PathParam("id") int id) {
 		return service.getAClass(id);
 	}
+
+	@Path("/addClass")
+	@POST
+	@Produces({ "application/json" })
+	public String addClass(String classroom) {
+		return service.addClass(classroom);
+	}
+
 }

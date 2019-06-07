@@ -9,9 +9,8 @@ public class ClassServiceImpl implements ClassService {
 	private ClassRepository repo;
 
 	@Override
-	public String addClass(String trainer) {
-		// TODO Auto-generated method stub
-		return null;
+	public String addClass(String classroom) {
+		return repo.addClass(classroom);
 	}
 
 	@Override
