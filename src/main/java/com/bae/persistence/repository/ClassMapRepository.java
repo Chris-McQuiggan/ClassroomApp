@@ -11,7 +11,7 @@ import com.bae.util.JSONUtil;
 @Alternative
 public class ClassMapRepository implements ClassRepository {
 
-	private Map<Integer, Classroom> classMap = new HashMap<Integer, Classroom>();
+	private Map<Integer, Classroom> classMap = new HashMap<>();
 
 	private JSONUtil util = new JSONUtil();
 
@@ -24,9 +24,10 @@ public class ClassMapRepository implements ClassRepository {
 	}
 
 	@Override
-	public String addClass(String trainer) {
-		// TODO Auto-generated method stub
-		return null;
+	public String addClass(String classroom) {
+		Classroom newAccount = util.getObjectForJSON(classroom, Classroom.class);
+		classMap.put(newAccount.getClassID(), newAccount);
+		return "Classroom successfuly created";
 	}
 
 	@Override

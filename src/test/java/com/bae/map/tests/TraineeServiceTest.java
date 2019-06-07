@@ -16,6 +16,9 @@ public class TraineeServiceTest {
 	private Trainee trainee1 = new Trainee(1, "Joe Bloggs", 1);
 	private Trainee trainee2 = new Trainee(2, "Jane Bloggs", 1);
 	private Trainee trainee3 = new Trainee(3, "David Bloggs", 2);
+	private String jSONTrainee1 = "{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}";
+	private String jSONTrainee2 = "{\"studentID\":2,\"traineeName\":\"Jane Bloggs\",\"classID\":1}";
+	private String jSONTrainee3 = "{\"studentID\":3,\"traineeName\":\"David Bloggs\",\"classID\":2}";
 
 	@Before
 	public void setup() {
@@ -33,6 +36,12 @@ public class TraineeServiceTest {
 	public void getTraineeTestMatch() {
 		tmr.getTraineeMap().put(1, trainee1);
 		assertEquals("{\"studentID\":1,\"traineeName\":\"Joe Bloggs\",\"classID\":1}", tmr.getATrainee(1));
+	}
+
+	@Test
+	public void addTraineeTest1() {
+		assertEquals(tmr.addTrainee(jSONTrainee1), "Trainee successfuly created");
+		assertEquals(tmr.getTraineeMap().size(), 1);
 	}
 
 	@Test

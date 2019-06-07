@@ -22,8 +22,8 @@ public class TraineeDBRepository implements TraineeRepository {
 	@Transactional(TxType.REQUIRED)
 	@Override
 	public String addTrainee(String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return "Trainee successfuly created";
 	}
 
 	@Override

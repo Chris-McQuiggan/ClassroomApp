@@ -11,7 +11,7 @@ import com.bae.util.JSONUtil;
 @Alternative
 public class TraineeMapRepository implements TraineeRepository {
 
-	private Map<Integer, Trainee> traineeMap = new HashMap<Integer, Trainee>();
+	private Map<Integer, Trainee> traineeMap = new HashMap<>();
 
 	private JSONUtil util = new JSONUtil();
 
@@ -25,8 +25,9 @@ public class TraineeMapRepository implements TraineeRepository {
 
 	@Override
 	public String addTrainee(String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainee newAccount = util.getObjectForJSON(trainee, Trainee.class);
+		traineeMap.put(newAccount.getClassID(), newAccount);
+		return "Trainee successfuly created";
 	}
 
 	@Override
