@@ -7,9 +7,13 @@ Database are fully functioning individually but are not joined.
 http://localhost:8080/ClassroomApp/api/Trainee/
 
 addTrainee
+
 getAllTrainees
+
 getATrainee/{}
+
 updateTrainee/{}
+
 deleteTrainee/{}
   
   
@@ -17,7 +21,11 @@ deleteTrainee/{}
   http://localhost:8080/ClassroomApp/api/Classroom/
   
 addClass
+
 getAllClasses
+
 getAClass\{}
+
 updateClass\{}
+
 deleteClass\{}
