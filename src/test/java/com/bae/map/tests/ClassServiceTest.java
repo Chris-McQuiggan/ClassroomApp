@@ -43,6 +43,24 @@ public class ClassServiceTest {
 	}
 
 	@Test
+	public void removeClassTest() {
+		cmr.getClassMap().put(1, class1);
+		cmr.deleteClass(1);
+		assertEquals(false, cmr.getClassMap().containsKey(1));
+
+	}
+
+	@Test
+	public void remove2ClassTest() {
+		cmr.getClassMap().put(1, class1);
+		cmr.getClassMap().put(2, class2);
+		cmr.deleteClass(1);
+		assertEquals(false, cmr.getClassMap().containsKey((Integer) 1));
+		cmr.deleteClass(2);
+		assertEquals(false, cmr.getClassMap().containsKey((Integer) 2));
+	}
+
+	@Test
 	public void jsonStringToClasroomConversionTest() {
 		String stringToTest = jSONClass1;
 		Classroom testAccount = util.getObjectForJSON(stringToTest, Classroom.class);
