@@ -27,7 +27,7 @@ public class ClassDBRepository implements ClassRepository {
 		Classroom class1 = util.getObjectForJSON(classroom, Classroom.class);
 		em.persist(class1);
 
-		return "Success:---  " + classroom;
+		return classroom;
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class ClassDBRepository implements ClassRepository {
 			classToUpdate.setTrainer(class1.getTrainer());
 			em.persist(classToUpdate);
 		}
-		return "Updated:---   " + classroom;
+		return classroom;
 	}
 
 	@Transactional(TxType.REQUIRED)
