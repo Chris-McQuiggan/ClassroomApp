@@ -60,7 +60,7 @@ public class ClassDBRepository implements ClassRepository {
 	public String deleteClass(int id) {
 		Classroom class1 = em.getReference(Classroom.class, id);
 		em.remove(class1);
-		return "Classroom Deleted";
+		return "{\"result\":\"Classroom Deleted\"}";
 	}
 
 }
